@@ -1,0 +1,46 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="articles" id="top">
+    <div class="categories" id="categories">
+
+        <div class="search">
+            <span id="search-btn"
+                ><i class="fa-solid fa-magnifying-glass"></i
+            ></span>
+            <input
+                id="search-text"
+                placeholder="Search..."
+                type="text"
+            />
+        </div>
+    </div>
+    <div class="articles-container">
+        {% for article in articles %}
+            <a href="{% url 'home:article' article.id %}" class="article-regular">
+                <img src="/media/{{ article.cover_image }}" alt="" />
+                <div class="content">
+                    <div class="date">{{ article.date_pub }}</div>
+                    <h2>
+                        {{ article.article_title }}
+                    </h2>
+                    <p>
+                        {{ article.article_description }}
+                    </p>
+                    <div class="seperator"></div>
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                        {{ article.views }}
+                    </span>
+                </div>
+            </a>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src={% static "js/blog-home.js" %}></script>
+{% endblock %}

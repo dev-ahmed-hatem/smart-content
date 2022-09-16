@@ -1,0 +1,62 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block title %}
+{{ article_title }}
+{% endblock %}
+
+{% block content %}
+<div class="article" id="top">
+
+    <div class="content">
+
+    {% for paragraph in paragraphs %}
+
+        <div class="par">
+            <h2>
+                {{ paragraph.heading }}
+            </h2>
+            <p>
+                {{ paragraph.text }}
+            </p>
+            <div class="images">
+            {% if paragraph.second_image %}
+                <img class="double" src="{{paragraph.first_image.url}}" alt="" />
+                <img class="double" src="{{paragraph.second_image.url}}" alt="" />
+            {% else %}
+                <img src="{{paragraph.first_image.url}}" alt="" />
+            {% endif %}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+    </div>
+
+</div>
+
+<div class="recent">
+    <div class="title">
+        <h4>Recent Posts</h4>
+        <a href="{% url 'home:blog' %}">See All</a>
+    </div>
+    <div class="content">
+        {% for recent_article in recent_articles %}
+            <a href="{% url 'home:article' recent_article.id %}" class="article-recent">
+                <img src="{{ recent_article.cover_image.url }}" alt="" />
+                <div class="details">
+                    <h5>
+                        {{ recent_article.article_title }}
+                    </h5>
+                    <div class="seperator"></div>
+                    <span>
+                        <i class="fa-regular fa-eye"></i>
+                        {{ recent_article.views }}
+                    </span>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% block style %}
+
+        {% endblock %}
+        <link rel="stylesheet" href='{% static "css/blog.css" %}' />
+        <link rel="stylesheet" href='{% static "css/header-footer.css" %}' />
+        <link
+            rel="stylesheet"
+            href='{% static "css/fontawesome-free-6.2.0-web/css/brands.css" %}'
+        />
+        <link
+            rel="stylesheet"
+            href='{% static "css/fontawesome-free-6.2.0-web/css/fontawesome.css" %}'
+        />
+        <link
+            rel="stylesheet"
+            href={% static "css/fontawesome-free-6.2.0-web/css/solid.css" %}
+        />
+        <title>{% block title %}
+
+        {% endblock %}</title>
+    </head>
+    <body>
+        <div class="scroll-top" id="scroll">
+            <i class="fa-solid fa-chevron-up"></i>
+        </div>
+        <header id="header">
+            <div class="logo">
+                <img
+                    src='{% static "website content/photos/logo.png" %}'
+                    alt="smart content"
+                />
+            </div>
+            <div class="nav">
+                <ul id="links">
+                    <li id="home-btn"><a href="{% url 'home:home' %}">Home</a></li>
+                    <li id="about-btn"><a href="{% url 'home:home' %}">About</a></li>
+                    <li id="services-btn"><a href="{% url 'home:home' %}">Services</a></li>
+                    <li id="projects-btn"><a href="{% url 'home:home' %}">Projects</a></li>
+                    <li id="contact-btn"><a href="{% url 'home:home' %}">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="lang">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="content">
+                        <a href=""><span class="en active">En</span></a>
+                        <a href=""><span class="ar">ع</span></a>
+                    </span>
+                </button>
+                <button class="blog">
+                    <i class="fa-solid fa-blog"></i>
+                    <span class="content"
+                        ><a href="{% url 'home:blog' %}"><span>Blog</span></a></span
+                    >
+                </button>
+                <button class="lib button-hoverable"><a href="">Online Library</a></button>
+            </div>
+            <div class="toggle" id="toggle">
+                <span class="list-button"></span>
+            </div>
+            <div class="bottom"></div>
+        </header>
+        {% block content %}
+
+        {% endblock %}
+        <footer>
+            <div class="content">
+                <div class="contact-list">
+                    <div class="facebook">
+                        <span class="icon"
+                            ><i class="fa-brands fa-facebook-f"></i
+                        ></span>
+                        <a
+                            href="https://www.facebook.com/Smart-Content-110298004595201"
+                            target="blank"
+                            class="details"
+                            >Smart Content @facebook</a
+                        >
+                    </div>
+                    <div class="linked">
+                        <span class="icon"
+                            ><i class="fa-brands fa-linkedin-in"></i
+                        ></span>
+                        <a
+                            href="https://www.linkedin.com/company/smartcontent1/"
+                            target="blank"
+                            class="details"
+                            >Smart Content @linkedin</a
+                        >
+                    </div>
+                </div>
+                <div class="logo">
+                    <img
+                        src={% static "website content/photos/logo.png" %}
+                    />
+                </div>
+            </div>
+        </footer>
+        <script src={% static "js/blog.js" %}></script>
+        <script src={% static "js/header-footer.js" %}></script>
+        {% block scripts %}
+
+        {% endblock %}
+    </body>
+</html>

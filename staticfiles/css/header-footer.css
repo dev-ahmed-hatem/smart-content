@@ -1,0 +1,678 @@
+@font-face {
+    font-family: "Nunito Sans";
+    src: url("../fonts/Nunito Sans/NunitoSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Coustard";
+    src: url(../fonts/Coustard/Coustard-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Inika";
+    src: url(../fonts/Inika/Inika-Regular.ttf);
+}
+
+.button-hoverable {
+    border-radius: 51px;
+    background-color: var(--theme-color);
+    border: none;
+    outline: none;
+    color: #fff;
+    border: 2px solid var(--theme-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.button-hoverable:hover {
+    background-color: transparent;
+    color: var(--theme-color);
+    cursor: pointer;
+}
+
+header {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 35px 40px;
+    position: fixed;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    z-index: 200;
+}
+
+header.sticky {
+    height: 100px;
+    position: fixed;
+    top: 0;
+    padding: 10px 50px 20px;
+}
+
+header .toggle {
+    display: none;
+}
+
+header .logo img {
+    margin-top: 30px;
+    width: 165px;
+    transition: all 0.2s ease-in-out;
+}
+
+header.sticky .logo img {
+    width: 135px;
+}
+
+header .nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 550px;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+}
+
+header .nav ul li a {
+    color: #000;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+header.sticky .nav ul {
+    width: 480px;
+}
+
+header .nav ul li {
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 38.19px;
+    display: block;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+header.sticky .nav ul li {
+    font-size: 18px;
+}
+
+header .nav ul li::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: var(--theme-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+header .nav ul li:hover,
+header .nav ul li:hover a,
+header .nav ul li.active {
+    color: var(--theme-color);
+    cursor: pointer;
+}
+
+header .nav ul li:hover::after,
+header .nav ul li.active::after {
+    width: 100%;
+}
+
+header .buttons {
+    width: 290px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+header.sticky .buttons {
+    width: 250px;
+}
+
+header .buttons button:not(.lib) {
+    background-color: transparent;
+    width: 60px;
+    height: 45px;
+    border-radius: 10px;
+    border: 0;
+    font-size: 27px;
+    cursor: pointer;
+    color: var(--dark-blue);
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+header.sticky .buttons button:not(.lib) {
+    width: 55px;
+    height: 40px;
+    font-size: 24px;
+}
+
+header .buttons button:not(.lib):hover {
+    color: var(--theme-color);
+}
+
+header .buttons button:not(.lib) .content {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in-out;
+    display: none;
+}
+
+header.sticky .buttons button:not(.lib) .content {
+    width: 70px;
+    height: 34px;
+    font-size: 15px;
+}
+
+header .buttons button:not(.lib):hover .content {
+    display: flex;
+}
+
+header .buttons button:not(.lib) .content::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-bottom: 5px solid #000;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+header .buttons button:not(.lib) .content a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    text-decoration: none;
+}
+
+header .buttons button:not(.lib) .content a span {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #000;
+    border-radius: 10px;
+    color: #fff;
+}
+
+header .buttons button:not(.lib) .content a span.active,
+header .buttons button:not(.lib) .content a span:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+header .buttons .lib {
+    width: 160px;
+    height: 50px;
+    font-size: 20px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.sticky .buttons .lib {
+    width: 140px;
+    height: 40px;
+    font-size: 17px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .buttons .lib a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+header .buttons .lib:hover a {
+    text-decoration: none;
+    color: var(--theme-color);
+}
+
+header .bottom {
+    width: 90%;
+    height: 2px;
+    border-radius: 30px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--dark-blue);
+    transform: translateX(-50%);
+}
+
+footer {
+    width: 100%;
+    background-image: url("../website content/photos/footer.png");
+    background-size: 80% 110%;
+}
+
+footer .content {
+    width: 100%;
+    height: 200px;
+    background-color: #525669a1;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .content .logo {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .content .logo img {
+    margin-top: 30px;
+}
+
+footer .content .contact-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 300px;
+}
+
+footer .content .contact-list div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+footer .content .contact-list div a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .contact-list div .icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-right: 25px;
+    color: var(--dark-blue);
+}
+
+@media screen and (max-width: 849px) {
+    header {
+        height: 100px;
+        position: fixed;
+        padding: 20px 15px 25px;
+    }
+
+    header.sticky {
+        height: 90px;
+        padding: 20px 10px 25px;
+    }
+
+    header .toggle {
+        display: block;
+        position: relative;
+        width: 50px;
+        height: 50px;
+    }
+
+    header.sticky .toggle {
+        display: block;
+        position: relative;
+        width: 40px;
+        height: 40px;
+    }
+
+    header .toggle {
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    header .toggle .list-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+    }
+
+    header .toggle .list-button,
+    header .toggle .list-button::after,
+    header .toggle .list-button::before {
+        display: block;
+        height: 3px;
+        border-radius: 20px;
+        background-color: var(--dark-blue);
+        transition: all 0.2s ease-in-out;
+    }
+
+    header .toggle .list-button::after,
+    header .toggle .list-button::before {
+        content: "";
+        position: absolute;
+        right: 0;
+    }
+
+    header .toggle .list-button::before {
+        top: -490%;
+        width: 70%;
+    }
+
+    header .toggle .list-button::after {
+        bottom: -500%;
+        width: 40%;
+    }
+
+    header .toggle.active .list-button {
+        transform: rotate(-45deg) translateX(-65%) translateY(-50%);
+        top: 0;
+        right: 0;
+    }
+
+    header .toggle.active .list-button::before {
+        width: 100%;
+        transform: rotate(-90deg) translateX(-30%);
+    }
+
+    header.sticky .toggle.active .list-button::before {
+        transform: rotate(-90deg) translateX(-38%);
+    }
+
+    header .toggle.active .list-button::after {
+        width: 0;
+    }
+
+    header .logo img {
+        width: 100px;
+    }
+
+    header.sticky .logo img {
+        width: 85px;
+    }
+
+    header .nav {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+    }
+
+    header .nav ul {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        border: 0;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 0;
+    }
+
+    header.sticky .nav ul {
+        width: 100%;
+    }
+
+    header .nav ul.active {
+        height: 304px;
+        border: 2px solid var(--dark-blue);
+    }
+
+    header .nav ul li {
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        border: 1px solid var(--dark-blue);
+    }
+
+    header.sticky .nav ul li {
+        font-size: 16px;
+    }
+
+    header .nav ul li::after {
+        display: none;
+    }
+
+    header .buttons {
+        max-width: 250px;
+        min-width: 185px;
+        margin: 0 10px;
+    }
+
+    header.sticky .buttons {
+        max-width: 220px;
+        min-width: 170px;
+        margin: 0 5px;
+    }
+
+    header .buttons button:not(.lib) {
+        font-size: 24px;
+        width: 40px;
+        height: 30px;
+    }
+
+    header.sticky .buttons button:not(.lib) {
+        font-size: 21px;
+        width: 30px;
+        height: 35px;
+    }
+
+    header .buttons .lib {
+        width: 115px;
+        height: 30px;
+        font-size: 14px;
+        margin-left: 0;
+    }
+
+    header.sticky .buttons .lib {
+        width: 100px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    header .buttons button:not(.lib) .content {
+        width: 50px;
+        height: 30px;
+        font-size: 13px;
+        top: 120%;
+    }
+
+    header.sticky .buttons button:not(.lib) .content {
+        width: 40px;
+        height: 25px;
+        font-size: 11px;
+        top: 100%;
+    }
+
+    header .buttons button .content a {
+        width: 45px;
+    }
+
+    header .bottom {
+        width: 85%;
+    }
+
+    header.sticky .bottom {
+        width: 80%;
+    }
+
+    footer .content .logo img {
+        margin-top: 20px;
+        width: 165px;
+        height: 92px;
+    }
+
+    footer .content {
+        flex-direction: column;
+        height: fit-content;
+        padding: 15px;
+    }
+
+    footer .content .contact-list {
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    footer .content .contact-list div {
+        font-size: 14px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+    }
+
+    footer .content .contact-list div .icon {
+        margin-right: 5px;
+        width: 20px;
+        height: 20px;
+    }
+
+    footer .content .contact-list div .details {
+        min-width: 85px;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 1079px) {
+    header {
+        height: 120px;
+        padding: 20px 10px 20px;
+    }
+
+    header .logo img {
+        width: 140px;
+    }
+
+    header .nav ul {
+        width: 420px;
+    }
+
+    header .nav ul li {
+        font-size: 17px;
+    }
+
+    header .buttons {
+        width: 215px;
+    }
+
+    header .buttons button {
+        width: 55px;
+        height: 40px;
+        font-size: 26px;
+    }
+
+    header .buttons button:not(.lib) {
+        width: 40px;
+        height: 35px;
+        margin-right: 10px;
+        font-size: 22px;
+    }
+
+    header.sticky .buttons button:not(.lib) {
+        width: 35px;
+        height: 30px;
+        font-size: 20px;
+        margin-right: 0;
+    }
+
+    header .buttons .lib {
+        width: 125px;
+        height: 35px;
+        font-size: 16px;
+        margin-left: 0;
+    }
+
+    header.sticky .buttons .lib {
+        width: 100px;
+        height: 30px;
+        font-size: 12px;
+        margin-left: 0;
+    }
+
+    header .buttons button:not(.lib) .content {
+        width: 60px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    header.sticky .buttons button:not(.lib) .content {
+        width: 55px;
+        height: 30px;
+        font-size: 13px;
+    }
+
+    header .buttons button .content a {
+        width: 45px;
+    }
+
+    header.sticky {
+        height: 90px;
+        padding: 10px 15px 15px;
+    }
+
+    header.sticky .logo img {
+        width: 125px;
+    }
+
+    header.sticky .nav ul {
+        width: 455px;
+    }
+
+    header.sticky .nav ul li {
+        font-size: 15px;
+    }
+
+    header.sticky .buttons {
+        width: 190px;
+    }
+
+    header.sticky .buttons button {
+        width: 55px;
+        height: 40px;
+        font-size: 23px;
+    }
+
+    footer .content {
+        padding: 15px 50px;
+        height: 170px;
+    }
+
+    footer .content .contact-list {
+        width: 60%;
+        margin-top: 20px;
+    }
+
+    footer .content .contact-list div {
+        font-size: 18px;
+    }
+}
