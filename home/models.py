@@ -6,7 +6,7 @@ class Article(models.Model):
     article_description = models.TextField(verbose_name="Description", max_length=200)
     date_pub = models.DateField(verbose_name="Date Published", auto_now=True)
     cover_image = models.ImageField(verbose_name="Cover Image", upload_to="uploads/photos/")
-    views = models.IntegerField(editable=False)
+    views = models.IntegerField(editable=False, default=0)
 
     def visited(self):
         self.views += 1
