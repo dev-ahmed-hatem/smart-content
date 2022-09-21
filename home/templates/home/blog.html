@@ -19,7 +19,7 @@
     <div class="articles-container">
         {% for article in articles %}
             <a href="{% url 'home:article' article.id %}" class="article-regular">
-                <img src="/media/{{ article.cover_image }}" alt="" />
+                <img src="{% static article.cover_image.url %}" alt="" />
                 <div class="content">
                     <div class="date">{{ article.date_pub }}</div>
                     <h2>
