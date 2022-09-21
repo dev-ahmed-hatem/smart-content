@@ -21,10 +21,14 @@
             </p>
             <div class="images">
             {% if paragraph.second_image %}
-                <img class="double" src="{{paragraph.first_image.url}}" alt="" />
-                <img class="double" src="{{paragraph.second_image.url}}" alt="" />
+                {% if paragraph.first_image and paragraph.second_image %}
+                    <img class="double" src="{% static paragraph.first_image.url %}" alt="" />
+                    <img class="double" src="{% static paragraph.second_image.url %}" alt="" />
+                {% endif %}
             {% else %}
-                <img src="{{paragraph.first_image.url}}" alt="" />
+                {% if paragraph.first_image %}
+                    <img src="{% static paragraph.first_image.url %}" alt="" />
+                {% endif %}
             {% endif %}
             </div>
 
